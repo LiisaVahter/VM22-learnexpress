@@ -1,0 +1,26 @@
+
+    {% extends "partials/layout.njk"%}
+    {% block title %} login {% endblock %}
+    {% block content %}
+        {% if errors %}
+            <ul>
+                {% for error in errors %}
+                <div class="alert  alert-danger" role="alert">
+                <li>{{error}}</li>
+                </div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="email" class="form-label">email</label>
+       <input id="email" class="form-control" type="text" placeholder="email" name= "email">
+        </div>
+        <div class="mb-3">
+         <label for="password" class="form-label">password</label>
+       <input id="password" class="form-control" type="password" placeholder="password" name= "password">
+        </div>
+
+        <input class="btn btn-primary" type="submit" value = "Login">
+        </form>
+    {% endblock %}
